@@ -23,6 +23,7 @@ items:
         containers:
         - name: kubernetes-agents-controller
           image: {{ .Values.controller.image }}
+          imagePullPolicy: IfNotPresent
           command:
           - "sh"
           - "-c"
