@@ -24,14 +24,14 @@ items:
         - name: kubernetes-agents-controller
           image: {{ .Values.controller.image }}
           imagePullPolicy: IfNotPresent
-          command:
-          - "sh"
-          - "-c"
-          - "./startup.sh"
           env:
-          - name: KAHOLO_URL
-            value: "{{ .Values.connection.kaholoUrl }}"
+          - name: SERVER_URL
+            value: "{{ .Values.connection.serverUrl }}"
           - name: SERVICE_ACCOUNT_TOKEN
             value: "{{ .Values.connection.serviceAccountToken }}"
+          - name: CLUSTER_KEY
+            value: "{{ .Values.controller.clusterKey }}"
+          - name: CLUSTER_NAME
+            value: "{{ .Values.controller.clusterName }}"
           - name: ADDITIONAL_AGENTS_IMAGES
             value: "{{ join "," .Values.controller.additionalAgentImages }}"
