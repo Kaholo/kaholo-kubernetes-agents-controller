@@ -8,7 +8,7 @@ items:
   kind: Deployment
   metadata:
     name: kubernetes-agents-controller
-    namespace: kaholo-kubernetes-agents-controller
+    namespace: {{ include "controller.namespace" . | quote }}
   spec:
     replicas: 1
     selector:
@@ -34,6 +34,6 @@ items:
           - name: CLUSTER_NAME
             value: "{{ .Values.controller.clusterName }}"
           - name: NAMESPACE
-            value: "{{ .Values.controller.namespace }}"
+            value: {{ include "controller.namespace" . | quote }}
           - name: ADDITIONAL_AGENTS_IMAGES
             value: "{{ join "," .Values.controller.additionalAgentImages }}"
