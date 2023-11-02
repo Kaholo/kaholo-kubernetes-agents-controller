@@ -10,9 +10,9 @@ items:
     namespace: kaholo-kubernetes-agents-controller
     name: deployment-manager-role
   rules:
-  - apiGroups: ["apps"]
-    resources: ["deployments"]
-    verbs: ["create", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 - apiVersion: v1
   kind: ServiceAccount
