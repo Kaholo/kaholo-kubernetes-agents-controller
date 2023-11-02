@@ -33,5 +33,7 @@ items:
             value: "{{ .Values.controller.clusterKey }}"
           - name: CLUSTER_NAME
             value: "{{ .Values.controller.clusterName }}"
+          - name: NAMESPACE
+            value: "{{ .Values.controller.namespace }}"
           - name: ADDITIONAL_AGENTS_IMAGES
             value: "{{ join "," .Values.controller.additionalAgentImages }}"
