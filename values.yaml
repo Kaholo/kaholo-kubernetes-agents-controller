@@ -4,5 +4,6 @@ connection:
 controller:
   image: matankaholo/kubernetes-agents-controller:v6.4.0
   additionalAgentImages: []
+  namespace: kaholo-kubernetes-agents-controller
   clusterKey: k8s-agents-cluster
   clusterName: k8s-agents-cluster
