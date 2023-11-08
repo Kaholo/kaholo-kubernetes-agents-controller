@@ -7,28 +7,28 @@ items:
 - apiVersion: rbac.authorization.k8s.io/v1
   kind: Role
   metadata:
-    namespace: kaholo-kubernetes-agents-controller
+    namespace: {{ include "controller.namespace" . | quote }}
     name: deployment-manager-role
   rules:
-  - apiGroups: ["apps"]
-    resources: ["deployments"]
-    verbs: ["create", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 - apiVersion: v1
   kind: ServiceAccount
   metadata:
     name: kubernetes-agents-controller-sa
-    namespace: kaholo-kubernetes-agents-controller
+    namespace: {{ include "controller.namespace" . | quote }}
 
 - apiVersion: rbac.authorization.k8s.io/v1
   kind: RoleBinding
   metadata:
-    namespace: kaholo-kubernetes-agents-controller
+    namespace: {{ include "controller.namespace" . | quote }}
     name: deployment-manager-binding
   subjects:
   - kind: ServiceAccount
     name: kubernetes-agents-controller-sa
-    namespace: kaholo-kubernetes-agents-controller
+    namespace: {{ include "controller.namespace" . | quote }}
   roleRef:
     kind: Role
     name: deployment-manager-role

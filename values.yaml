@@ -1,3 +1,5 @@
+global:
+  namespaceOverride: ""
 connection:
   kaholoUrl: https://mycompany.kaholo.net
   serviceAccountToken: token-123asd
