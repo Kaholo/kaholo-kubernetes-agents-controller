@@ -26,9 +26,9 @@ items:
           imagePullPolicy: IfNotPresent
           env:
           - name: SERVER_URL
-            value: "{{ .Values.connection.serverUrl }}"
-          - name: SERVICE_ACCOUNT_TOKEN
-            value: "{{ .Values.connection.serviceAccountToken }}"
+            value: "{{ .Values.connection.kaholoUrl }}"
+          - name: REGISTRATION_TOKEN
+            value: "{{ .Values.connection.registrationToken }}"
           - name: CLUSTER_KEY
             value: "{{ .Values.controller.clusterKey }}"
           - name: CLUSTER_NAME
